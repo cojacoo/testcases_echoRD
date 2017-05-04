@@ -1,0 +1,29 @@
+convert eWlef_Dj2*.pdf Dj2.gif
+convert eWlef_Dj3*.pdf Dj3.gif
+convert eWlef_Dj4*.pdf Dj4.gif
+convert eWlef_Dm2*.pdf Dm2.gif
+convert eWlef_Dm3*.pdf Dm3.gif
+convert eWlef_Dm4*.pdf Dm4.gif
+convert eWlef_Do2*.pdf Do2.gif
+convert eWlef_Do3*.pdf Do3.gif
+convert eWlef_Do4*.pdf Do4.gif
+
+convert eWlef_Ej2*.pdf Ej2.gif
+convert eWlef_Ej3*.pdf Ej3.gif
+convert eWlef_Ej4*.pdf Ej4.gif
+convert eWlef_Em2*.pdf Em2.gif
+convert eWlef_Em3*.pdf Em3.gif
+convert eWlef_Em4*.pdf Em4.gif
+convert eWlef_Eo2*.pdf Eo2.gif
+convert eWlef_Eo3*.pdf Eo3.gif
+convert eWlef_Eo4*.pdf Eo4.gif
+
+convert eWlef_Fj2*.pdf Fj2.gif
+convert eWlef_Fj3*.pdf Fj3.gif
+convert eWlef_Fj4*.pdf Fj4.gif
+convert eWlef_Fm2*.pdf Fm2.gif
+convert eWlef_Fm3*.pdf Fm3.gif
+convert eWlef_Fm4*.pdf Fm4.gif
+convert eWlef_Fo2*.pdf Fo2.gif
+convert eWlef_Fo3*.pdf Fo3.gif
+convert eWlef_Fo4*.pdf Fo4.gif
