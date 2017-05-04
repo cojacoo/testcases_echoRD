@@ -41,7 +41,7 @@ def preproc_echoRD(mc, dr, mcp, pickfile='test.pickle'):
 
 def pickup_echoRD(mc, mcp, dr, pickfile='test.pickle'):
     mcp.mcpick_out(mc,pickfile)
-    [mc,particles,npart]=dr.particle_setup(mc)
+    [mc,particles,npart]=dr.particle_setup(mc,False)
     precTS=pd.read_csv(mc.precf, sep=',',skiprows=3)
 
     return(mc,particles,npart,precTS)
