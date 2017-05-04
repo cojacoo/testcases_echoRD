@@ -90,4 +90,6 @@ ENV/
 .ropeproject
 
 # Exclude Results
-./results/*
+./results/*.pick
+./results/*.png
+./results/*.pdf
