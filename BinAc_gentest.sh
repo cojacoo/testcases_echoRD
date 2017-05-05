@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=28
+#PBS -l nodes=1:ppn=28:exclusive_process
 #PBS -l walltime=72:00:00
 #PBS -l mem=120gb
 #PBS -S /bin/bash
@@ -14,8 +14,11 @@ echo "User:"
 whoami
 echo "Job running on node:"
 uname -a
+echo "started on "
+date
 echo "- - - - - - - - - - -\n"
 echo "This script shall run all generic echoRD test cases on a BinAC node."
+echo "- - - - - - - - - - -\n"
 
 module load numlib/numpy
 module load lib/matplotlib
@@ -48,4 +51,4 @@ python gen_test2221.py &
 python gen_test3122.py &
 python gen_test1123.py &
 python gen_test2123.py &
-python gen_test3123.py &
+python gen_test3123.py
