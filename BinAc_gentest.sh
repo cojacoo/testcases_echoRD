@@ -1,7 +1,7 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=27
+#PBS -l nodes=1:ppn=28
 #PBS -l walltime=72:00:00
-#PBS -l mem=128gb
+#PBS -l mem=120gb
 #PBS -S /bin/bash
 #PBS -N echoRD_gentests
 #PBS -j oe
