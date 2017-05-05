@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=28:exclusive_process
+#PBS -l nodes=1:ppn=28
 #PBS -l walltime=72:00:00
 #PBS -l mem=120gb
 #PBS -S /bin/bash
