@@ -12,7 +12,8 @@ except:
 #connect echoRD Tools
 pathdir='../echoRD' #path to echoRD
 lib_path = os.path.abspath(pathdir)
-sys.path.append(lib_path)
+#sys.path.append(lib_path)
+sys.path.append('/home/ka/ka_iwg/ka_oj4748/echoRD/echoRD')
 import vG_conv as vG
 from hydro_tools import plotparticles_t,hydroprofile,plotparticles_specht
 
