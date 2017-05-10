@@ -32,9 +32,6 @@ runname='gen_test_col1'
 mc.advectref='Shipitalo'
 mc.soilmatrix=pd.read_csv(mc.matrixbf, sep=' ')
 mc.soilmatrix['m'] = np.fmax(1-1/mc.soilmatrix.n,0.1)
-mc.md_macdepth=mc.md_depth[np.fmax(2,np.sum(np.ceil(mc.md_contact),axis=1).astype(int))]
-mc.md_macdepth[mc.md_macdepth<=0.]=0.065
-
 
 precTS=pd.read_csv(mc.precf, sep=',',skiprows=3)
 
