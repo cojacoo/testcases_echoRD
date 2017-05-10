@@ -20,9 +20,11 @@ echo "- - - - - - - - - - -\n"
 echo "This script shall test-run one generic echoRD test cases on a BinAC node."
 echo "- - - - - - - - - - -\n"
 
+cd /home/ka/ka_iwg/ka_oj4748/echoRD/testcases_echoRD
+
 module load numlib/numpy
 module load lib/matplotlib
 module load lib/pandas
 module load numlib/scipy
 
-python ~/echoRD/testcases_echoRD/gen_test1111.py
+python gen_test1111.py
