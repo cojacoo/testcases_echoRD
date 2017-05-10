@@ -10,7 +10,7 @@ try:
 except:
    import pickle
 #connect echoRD Tools
-pathdir='../echoRD/' #path to echoRD
+pathdir='~/echoRD/echoRD/' #path to echoRD
 lib_path = os.path.abspath(pathdir)
 sys.path.append(lib_path)
 import vG_conv as vG
