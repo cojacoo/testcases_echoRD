@@ -15,7 +15,7 @@ lib_path = os.path.abspath(pathdir)
 #sys.path.append(lib_path)
 sys.path.append('/home/ka/ka_iwg/ka_oj4748/echoRD/echoRD')
 import vG_conv as vG
-from hydro_tools import plotparticles_t,hydroprofile,plotparticles_specht
+from hydro_tools import plotparticles_t,hydroprofile,plotparticles_column
 
 
 
@@ -136,7 +136,7 @@ except:
     
 #loop through plot cycles
 for i in np.arange(dummy.astype(int))[ix:]:
-    plotparticles_specht(particles,mc,pdyn,vG,runname,t,i,saving=True,relative=False,wdir=wdir)
+    plotparticles_column(particles,mc,pdyn,vG,runname,t,i,saving=True,relative=False,wdir=wdir)
     [particles,npart,thS,leftover,drained,t]=rE.CAOSpy_rundx1(i*output,(i+1)*output,mc,pdyn,cinf,precTS,particles,leftover,drained,6.,splitfac=4,prec_2D=False,maccoat=macscale,saveDT=saveDT,clogswitch=clogswitch,infilt_method=infiltmeth,exfilt_method=exfiltmeth,film=film,infiltscale=infiltscale)
     TSstore[i,:,:]=rE.part_store(particles,mc)
 
