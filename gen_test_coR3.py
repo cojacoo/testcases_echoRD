@@ -142,6 +142,6 @@ for i in np.arange(dummy.astype(int))[ix:]:
     TSstore[i,:,:]=rE.part_store(particles,mc)
 
     #if i/5.==np.round(i/5.):
-    with open(''.join([wdir,'/results/Z',runname,'_Mstat.pick']),'wb') as handle:
-            pickle.dump(pickle.dumps([pickle.dumps(particles),pickle.dumps([leftover,drained,t,TSstore,i])]), handle, protocol=2)
+    with open(''.join([wdir,'/results/X',runname,'_Mstat.pick']),'wb') as handle:
+            pickle.dump(pickle.dumps([leftover,drained,t,TSstore,i]), handle, protocol=2)
 
