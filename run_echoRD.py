@@ -322,8 +322,8 @@ def echoRD_job(mcinif='mcini',mcpick='mc.pickle3',runname='test',
 
         mc.mgrid['cells']=len(npart.ravel())
     except:
-        if upade_mf:
-            mc.inimf=upade_mf
+        if update_mf:
+            mc.inimf=update_mf
         #initialise particles
         [mc,particles,npart]=dr.particle_setup(mc,paral=parallel)
         t=0.
