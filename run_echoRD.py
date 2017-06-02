@@ -292,6 +292,8 @@ def echoRD_job(mcinif='mcini',mcpick='mc.pickle3',runname='test',
                     mc.mgrid['cells']=np.shape(TSstore)[0]
                     [thS,npart]=pdyn.gridupdate_thS(particles.lat,particles.z,mc)
                     thetastore=np.zeros((int(dummy),mc.mgrid.vertgrid[0],mc.mgrid.latgrid[0]))
+                    mc.t_end=24.*3600.
+                    mc.t_out=60
                 else:
                     [leftover,drained,t,TSstore,thetastore,npart,ix] = pickle.loads(dummyx[1])
                 ix+=1
