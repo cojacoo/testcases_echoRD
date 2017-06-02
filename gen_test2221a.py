@@ -1,8 +1,8 @@
 mcinif='mcini_gen2a'
 mcpick='gen_test2a.pickle'
 runname='gen_test2221'
-pathdir='/beegfs/work/ka_oj4748/echoRD/echoRD'
-wdir='/beegfs/work/ka_oj4748/echoRD/echoRD_weierbach'
+pathdir='/beegfs/work/ka_oj4748/echoRD'
+wdir='/beegfs/work/ka_oj4748/gen_tests'
 update_prec=0.01
 legacy_pick=True
 
