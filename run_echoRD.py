@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import scipy as sp
-import matplotlib.pyplot as plt
 import scipy.constants as const
 import os, sys
 
@@ -185,6 +184,7 @@ def part_store(particles,mc):
 
 #define plot routine for macropore states
 def plot_mac(particles,savef=False):
+    import matplotlib.pyplot as plt
     import seaborn as sns
     sns.set(font='Roboto',style='white', palette='deep',font_scale=1.2)
     zres=50.
