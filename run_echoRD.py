@@ -289,6 +289,7 @@ def echoRD_job(mcinif='mcini',mcpick='mc.pickle3',runname='test',
                 if legacy_pick:
                     [leftover,drained,t,TSstore,ix] = pickle.loads(dummyx[1])
                     dummy=np.floor(mc.t_end/mc.t_out)
+                    mc.mgrid['cells']=np.shape(TSstore)[0]
                     [thS,npart]=pdyn.gridupdate_thS(particles.lat,particles.z,mc)
                     thetastore=np.zeros((int(dummy),mc.mgrid.vertgrid[0],mc.mgrid.latgrid[0]))
                 else:
@@ -317,10 +318,10 @@ def echoRD_job(mcinif='mcini',mcpick='mc.pickle3',runname='test',
         mc.mactopfill=np.ceil((2.*mc.md_area/(-mc.gridcellA.values*mc.mgrid.latgrid.values))*mc.part_sizefac)[:,0]*0. #all empty
         # assumption: the pore space is converted into particles through mc.part_sizefac. this is now reprojected to the macropore by using the areal share of the macropores
         # DEBUG: there is still some inconcistency about the areas and volumes, but it may be a valid estimate with rather few assumptions
+        mc.mgrid['cells']=len(mc.mxbin.ravel())
         if largepick:
             [thS,npart]=pdyn.gridupdate_thS(particles.lat,particles.z,mc)
 
-        mc.mgrid['cells']=len(npart.ravel())
     except:
         if update_mf:
             mc.inimf=update_mf
