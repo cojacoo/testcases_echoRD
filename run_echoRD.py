@@ -211,7 +211,7 @@ def plot_mac(particles,savef=False):
 def echoRD_job(mcinif='mcini',mcpick='mc.pickle3',runname='test',
                wdir='./',pathdir='../echoRD/',saveDT=True,
                aref='Shipitalo',LTEdef='instant',infilM='MDA',exfilM='Ediss',
-               parallel=False,largepick=False,update_mf=False,update_prec=False,
+               parallel=False,hdf5pick=True,update_mf=False,update_prec=False,
                legacy_pick=False):
     '''
     This is a wrapper for running echoRD easily.
@@ -231,7 +231,7 @@ def echoRD_job(mcinif='mcini',mcpick='mc.pickle3',runname='test',
     saveDT  -- optional modified time steps [True | int (factor) | double (static step)]
 
     parallel-- flag for parallel initialisation of particles
-    largepick- flag for pickling many particles
+    hdf5pick-- flag using hdf5 for pickling
 
     update_mf- change referenced ini moist file
     update_prec- change total precip amount
@@ -249,6 +249,12 @@ def echoRD_job(mcinif='mcini',mcpick='mc.pickle3',runname='test',
         import cPickle as pickle
     except:
         import pickle
+
+    try:
+        import h5py
+    except:
+        hdf5pick = False
+        print('h5py not available - falling back to pickle use.')
     
     #connect echoRD Tools
     lib_path = os.path.abspath(pathdir)
@@ -274,12 +280,11 @@ def echoRD_job(mcinif='mcini',mcpick='mc.pickle3',runname='test',
     #check for previous runs to hook into
     try:
         #unpickle:
-        if largepick:
-            with open(''.join([wdir,'/results/L',runname,'_Mstat.pick']),'rb') as handle:
-                pickle_l = pickle.load(handle)
-                dummyx = pickle.loads(pickle_l)
-                particles = pickle.loads(dummyx[0])
-                [t,ix] = pickle.loads(dummyx[1])
+        if hdf5pick:
+            particles = pd.read_hdf5('./results/P_'+runname+'.h5')
+            with h5py.File('./results/S_'+runname+'.h5', 'r') as f:
+                dset = f["states"]
+                [t, len_parts, leftover, len_drain, ix] = dset[:]
                 ix+=1
         else:
             with open(''.join([wdir,'/results/Z',runname,'_Mstat.pick']),'rb') as handle:
@@ -321,7 +326,7 @@ def echoRD_job(mcinif='mcini',mcpick='mc.pickle3',runname='test',
         # assumption: the pore space is converted into particles through mc.part_sizefac. this is now reprojected to the macropore by using the areal share of the macropores
         # DEBUG: there is still some inconcistency about the areas and volumes, but it may be a valid estimate with rather few assumptions
         mc.mgrid['cells']=len(mc.mxbin.ravel())
-        if largepick:
+        if hdf5pick:
             [thS,npart]=pdyn.gridupdate_thS(particles.lat,particles.z,mc)
 
     except:
@@ -335,6 +340,13 @@ def echoRD_job(mcinif='mcini',mcpick='mc.pickle3',runname='test',
         dummy=np.floor(mc.t_end/mc.t_out)
         TSstore=np.zeros((int(dummy),mc.mgrid.cells[0],2))
         thetastore=np.zeros((int(dummy),mc.mgrid.vertgrid[0],mc.mgrid.latgrid[0]))
+        drained=pd.DataFrame(np.array([]))
+
+        if hdf5pick:
+            particles.to_hdf('./results/P_'+runname+'.h5','table')
+            with h5py.File('./results/S_'+runname+'.h5', 'w') as f:
+                dset = f.create_dataset("states", (1,5), dtype='f')
+                dset[:] =  [t, len(particles), leftover, len(drained), ix]
 
         print('starting new run...')
 
@@ -354,6 +366,8 @@ def echoRD_job(mcinif='mcini',mcpick='mc.pickle3',runname='test',
     mc.LTEpercentile=70 #new parameter
 
     t_end=mc.t_end
+    output=mc.t_out #mind to set also in TXstore.index definition
+    dummy=np.floor(t_end/output)
 
     infiltmeth=infilM
     exfiltmeth=exfilM
@@ -362,10 +376,6 @@ def echoRD_job(mcinif='mcini',mcpick='mc.pickle3',runname='test',
     clogswitch=False
     infiltscale=False
 
-    drained=pd.DataFrame(np.array([]))
-    output=mc.t_out #mind to set also in TXstore.index definition
-
-    dummy=np.floor(t_end/output)
     
     #loop through plot cycles
     for i in np.arange(dummy.astype(int))[ix:]:
@@ -374,9 +384,16 @@ def echoRD_job(mcinif='mcini',mcpick='mc.pickle3',runname='test',
         TSstore[i,:,:]=rE.part_store(particles,mc)
         thetastore[i,:,:]=np.reshape((mc.soilmatrix.loc[mc.soilgrid.ravel()-1,'tr']+(mc.soilmatrix.ts-mc.soilmatrix.tr)[mc.soilgrid.ravel()-1]*thS.ravel()*0.01).values,np.shape(thS))
 
-        if largepick:
-            with open(''.join([wdir,'/results/L',runname,'_Mstat.pick']),'wb') as handle:
-               pickle.dump(pickle.dumps([pickle.dumps(particles),pickle.dumps([t,i])]), handle, protocol=2)
+        if hdf5pick:
+            with h5py.File(mc.stochsoil, 'r+') as f:
+                dset = f["theta"]
+                dset[:,:,i]=np.reshape((mc.soilmatrix.loc[mc.soilgrid.ravel()-1,'tr']+(mc.soilmatrix.ts-mc.soilmatrix.tr)[mc.soilgrid.ravel()-1]*thS.ravel()*0.01).values,np.shape(thS))
+        
+            particles.to_hdf('./results/P_'+runname+'.h5','table')
+
+            with h5py.File('./results/S_'+runname+'.h5', 'r+') as f:
+                dset = f["states"]
+                dset = [t, len(particles), leftover, len(drained), ix]
         else:
             with open(''.join([wdir,'/results/Z',runname,'_Mstat.pick']),'wb') as handle:
                pickle.dump(pickle.dumps([pickle.dumps(particles),pickle.dumps([leftover,drained,t,TSstore,thetastore,npart,i])]), handle, protocol=2)
