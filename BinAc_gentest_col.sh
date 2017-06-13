@@ -22,6 +22,7 @@ echo "- - - - - - - - - - -\n"
 
 cd /home/ka/ka_iwg/ka_oj4748/echoRD/testcases_echoRD
 
+module load devel/python/3.5.1
 module load numlib/numpy
 module load lib/matplotlib
 module load lib/pandas
