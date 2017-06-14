@@ -2,4 +2,4 @@
 // all SI! put -9999 for missing value > try to compute in script; at least one (total/intensity) must be set 
 // [s]           [s]          [m]         [m/s]        [g/m3]
 tstart,tend,total,intense,conc
-400,90400,0.0945,1.0453539823008849e-06,1.65e-04
+120,86520,0.0945,1.05556e-06,1.65e-04

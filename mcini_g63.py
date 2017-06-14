@@ -7,6 +7,7 @@ etf='etp.dat'               #top_boundary_flux_etp
 inimf='moist_g63.dat'  #initial_moisture
 outdir='out'                #output_directory [not used while testing]
 t_end=86400                 #end_time[s] [not used while testing]
+t_out=60
 part_sizefac=500             #particle_sized_definition_factor
 grid_sizefac=0.01          #grid_size_definition_factor [m]
 subsfac=10                  #subsampling_rate [percent] [deprecated]
