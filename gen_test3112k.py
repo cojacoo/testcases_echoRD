@@ -1,5 +1,6 @@
 mcinif='mcini_weiher'
 runname='gen_test3112k'
+mcpick='gen_test3.pickle'
 pathdir='/beegfs/work/ka_oj4748/echoRD'
 wdir='/beegfs/work/ka_oj4748/gen_tests'
 update_prec=0.06
