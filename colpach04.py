@@ -4,6 +4,7 @@ mcpick='colpach.pick'
 pathdir='/beegfs/work/ka_oj4748/echoRD'
 wdir='/beegfs/work/ka_oj4748/gen_tests'
 import sys
+import numpy as np
 sys.path.append(pathdir)
 
 macscale=0.4
