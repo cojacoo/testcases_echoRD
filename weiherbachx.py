@@ -9,7 +9,7 @@ sys.path.append(pathdir)
 macscale=1.
 
 runname=runnamex+str(int(np.round(macscale*10))).zfill(2)
-if macscale!=1. and ''.join([wdir,'/results/Z',runname,'_Mstat.pick']).is_file()
+if macscale!=1. and ''.join([wdir,'/results/Z',runname,'_Mstat.pick']).is_file():
 	print('resuming into stored run')
 else:
 	runname=runnamex
