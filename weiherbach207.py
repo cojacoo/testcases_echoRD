@@ -1,4 +1,4 @@
-mcinif='mcini_weiherbach2'
+mcinif='mcini_weiherbach'
 runnamex='weiherbach2'
 mcpick='weiherbach.pick'
 pathdir='/beegfs/work/ka_oj4748/echoRD'

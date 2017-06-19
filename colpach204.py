@@ -1,4 +1,4 @@
-mcinif='mcini_XI_2'
+mcinif='mcini_XI'
 runnamex='colpach2'
 mcpick='colpach.pick'
 pathdir='/beegfs/work/ka_oj4748/echoRD'
