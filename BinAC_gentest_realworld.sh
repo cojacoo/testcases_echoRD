@@ -1,9 +1,9 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=8
+#PBS -l nodes=1:ppn=16
 #PBS -l walltime=72:00:00
-#PBS -l mem=80gb
+#PBS -l mem=120gb
 #PBS -S /bin/bash
-#PBS -N echoRD_realworld
+#PBS -N echoRD_realworld2
 #PBS -j oe
 #PBS -o LOG_realworld
 #PBS -n
@@ -35,4 +35,12 @@ python weiherbach07.py &
 python colpachx.py &
 python colpach01.py &
 python colpach04.py &
-python colpach07.py
+python colpach07.py &
+python weiherbachx2.py &
+python weiherbach201.py &
+python weiherbach204.py &
+python weiherbach207.py &
+python colpachx2.py &
+python colpach201.py &
+python colpach204.py &
+python colpach207.py
