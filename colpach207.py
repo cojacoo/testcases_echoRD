@@ -1,5 +1,5 @@
-mcinif='mcini_XI'
-runnamex='colpach2'
+mcinif='mcini_XI_2'
+runnamex='colpachA'
 mcpick='colpach.pick'
 pathdir='/beegfs/work/ka_oj4748/echoRD'
 wdir='/beegfs/work/ka_oj4748/gen_tests'

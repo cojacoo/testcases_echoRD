@@ -1,5 +1,5 @@
-mcinif='mcini_weiherbach'
-runnamex='weiherbach2'
+mcinif='mcini_weiherbach2'
+runnamex='weiherA'
 mcpick='weiherbach.pick'
 pathdir='/beegfs/work/ka_oj4748/echoRD'
 wdir='/beegfs/work/ka_oj4748/gen_tests'
