@@ -4,7 +4,7 @@ mcpick='gen_Fmac6.pick'
 pathdir='/beegfs/work/ka_oj4748/echoRD'
 wdir='/beegfs/work/ka_oj4748/gen_tests'
 update_prec=0.04
-update_mf=05moist.dat
+update_mf='05moist.dat'
 update_part=False
 
 import sys
