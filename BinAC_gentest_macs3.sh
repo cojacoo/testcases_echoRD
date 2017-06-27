@@ -28,13 +28,13 @@ module load lib/matplotlib
 module load lib/pandas
 module load numlib/scipy
 
-python gen_Jmac0.py &
-python gen_Jmac1.py &
-python gen_Jmac2.py &
-python gen_Jmac3.py &
-python gen_Jmac4.py &
-python gen_Jmac5.py &
-python gen_Jmac6.py &
-python gen_Jmac7.py &
-python gen_Jmac8.py &
-python gen_Jmac9.py 
+python gen_Fmac0.py &
+python gen_Fmac1.py &
+python gen_Fmac2.py &
+python gen_Fmac3.py &
+python gen_Fmac4.py &
+python gen_Fmac5.py &
+python gen_Fmac6.py &
+python gen_Fmac7.py &
+python gen_Fmac8.py &
+python gen_Fmac9.py 
