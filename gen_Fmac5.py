@@ -1,6 +1,6 @@
 mcinif='mcini_gen2'
 runname='gen_Jmac5'
-mcpick='gen_Jmac5.pick'
+mcpick='gen_Fmac5.pick'
 pathdir='/beegfs/work/ka_oj4748/echoRD'
 wdir='/beegfs/work/ka_oj4748/gen_tests'
 update_prec=0.04
