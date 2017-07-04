@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=20
+#PBS -l nodes=1:ppn=12
 #PBS -l walltime=72:00:00
 #PBS -l mem=120gb
 #PBS -S /bin/bash
@@ -28,14 +28,6 @@ module load lib/matplotlib
 module load lib/pandas
 module load numlib/scipy
 
-python column001.py &
-python column002.py &
-python column003.py &
-python column004.py &
-python column005.py &
-python column006.py &
-python column007.py &
-python column008.py &
 python weiherbach207.py &
 python weiherbach204.py &
 python weiherbach201.py &
