@@ -15,7 +15,7 @@ runname=runnamex+str(int(np.round(macscale*10))).zfill(2)
 if macscale!=1. and Path(''.join([wdir,'/results/Z',runname,'_Mstat.pick'])).is_file():
 	print('resuming into stored run')
 else:
-	runname=runnamex
+	#runname=runnamex
 	print('resuming into basefile')
 
 import run_echoRD as rE
