@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=12
+#PBS -l nodes=1:ppn=16
 #PBS -l walltime=72:00:00
 #PBS -l mem=120gb
 #PBS -S /bin/bash
@@ -31,9 +31,13 @@ module load numlib/scipy
 python colpach207.py &
 python colpach204.py &
 python colpach201.py &
+python colpach2005.py &
+python colpach2001.py &
 python colpach307.py &
 python colpach304.py &
 python colpach301.py &
+python colpach3005.py &
+python colpach3001.py &
 python colpach407.py &
 python colpach404.py &
 python colpach401.py &
